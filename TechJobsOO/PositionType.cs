@@ -24,12 +24,12 @@ namespace TechJobsOO
         }
          public override int GetHashCode()
         {
-            return HashCode.Combine(id);
+            return HashCode.Combine(Id);
         }
 
         public override string ToString()
         {
-            return value;
+            return Value;
         }
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
     }

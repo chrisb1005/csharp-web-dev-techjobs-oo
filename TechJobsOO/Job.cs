@@ -19,9 +19,9 @@ namespace TechJobsOO
       nextId++;
         }
 
-        public Job(int id, String name, String employerName, String employerLocation, String jobType, String jobCoreCompetency): this()
+        public Job( String name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency): this()
             {
-            Value= id;
+            
         Name= name;
             EmployerName= employerName;
             EmployerLocation= employerLocation;
@@ -38,7 +38,7 @@ namespace TechJobsOO
              if(this == obj && obj == this){
             return true;
             }
-             if(obj.GetType== "job" && this.Id == obj.Id){
+             if(obj is Job && this.Id == ((Job)obj).Id){
             return true;
             }
              return false;
