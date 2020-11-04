@@ -1,4 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 using TechJobsOO;
 
 namespace TechJobsTests
@@ -14,20 +16,33 @@ namespace TechJobsTests
             Assert.IsTrue(test_job.Id != test_job2.Id);
 
         }
+        [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
             Job test_job = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistance"));
-            Assert.AreEqual(test_job.Name, "product Tester");
-            Assert.AreEqual(test_job.EmployerName, "ACME");
-            Assert.AreEqual(test_job.EmployerLocation, "desert");
-            Assert.AreEqual(test_job.JobType, "quality control");
-            Assert.AreEqual(test_job.JobCoreCompetency, "persistence");
+            Assert.AreEqual(test_job.Name, "Product Tester");
+            Assert.AreEqual(test_job.EmployerName.Value, "ACME");
+            Assert.AreEqual(test_job.EmployerLocation.Value, "Desert");
+            Assert.AreEqual(test_job.JobType.Value, "Quality Control");
+            Assert.AreEqual(test_job.JobCoreCompetency.value, "Persistance");
         }
+        [TestMethod]
         public void TestJobsForEquality()
         {
             Job test_job = new Job("fun", new Employer("jacobson"), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
             Job test_job2 = new Job("fun", new Employer("jacobson"), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
             Assert.IsFalse(test_job.Id == test_job2.Id);
+        }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            Job test_job = new Job("fun", new Employer("jacobson"), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
+            
+           
+            Assert.IsTrue(test_job.ToString()[0] == '\n');
+            Assert.IsTrue(test_job.ToString()[test_job.ToString().Count() - 1] == '\n');
+           
         }
     }
 }

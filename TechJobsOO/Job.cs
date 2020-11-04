@@ -44,7 +44,11 @@ namespace TechJobsOO
              return false;
         }
 
-
+        public override string ToString()
+        {
+            string jobPrint = "\n" + "ID: " + "\n" + "Name:" + "\n" + "Employer: " + "\n" + "Location: " + "\n" + "Position Type: " + "\n" + "Core Competency: " + "\n";
+            return jobPrint;
+        }
 
     }
 }
