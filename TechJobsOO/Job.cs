@@ -46,7 +46,13 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            string jobPrint = "\n" + "ID: " + "\n" + "Name:" + "\n" + "Employer: " + "\n" + "Location: " + "\n" + "Position Type: " + "\n" + "Core Competency: " + "\n";
+            // string jobPrint = "\n" + "ID: " + "\n" + "Name:" + "\n" + "Employer: " + "\n" + "Location: " + "\n" + "Position Type: " + "\n" + "Core Competency: " + "\n";
+            Job test_job = new Job("fun", new Employer("jacobson"), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
+            string jobPrint = "\n" + $"Name: {test_job.Name}" + "\n" + $"Employer: {test_job.EmployerName}" + "\n" + $"Location: {test_job.EmployerLocation}" + "\n" + $"Position Type: {test_job.JobType}" + "\n" + $"Core Competency: {test_job.JobCoreCompetency}" + "\n";
+            if(Name == null|| EmployerName==null|| EmployerLocation== null|| JobType==null|| JobCoreCompetency == null)
+            {
+                Console.WriteLine("Data not available");
+            }
             return jobPrint;
         }
 

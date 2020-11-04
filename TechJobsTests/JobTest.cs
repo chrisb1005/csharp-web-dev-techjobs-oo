@@ -44,5 +44,21 @@ namespace TechJobsTests
             Assert.IsTrue(test_job.ToString()[test_job.ToString().Count() - 1] == '\n');
            
         }
+        [TestMethod]
+        public void TestToString2()
+        {
+            //string jobPrint = "\n" + "ID: " + "\n" + "Name:" + "\n" + "Employer: " + "\n" + "Location: " + "\n" + "Position Type: " + "\n" + "Core Competency: " + "\n";
+            Job test_job = new Job("fun", new Employer("jacobson"), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
+           // Console.WriteLine(test_job);
+            Assert.AreEqual(test_job.ToString(), "\n" + $"Name: {test_job.Name}" + "\n" + $"Employer: {test_job.EmployerName}" + "\n" + $"Location: {test_job.EmployerLocation}" + "\n" + $"Position Type: {test_job.JobType}" + "\n" + $"Core Competency: {test_job.JobCoreCompetency}" + "\n");
+        }
+
+        [TestMethod]
+
+        public void TestEmptyField()
+        {
+            Job test_job = new Job("fun", new Employer(), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
+            Assert.IsTrue(test_job.EmployerName.ToString() == "Data not available");
+        }
     }
 }
