@@ -24,7 +24,7 @@ namespace TechJobsTests
             Assert.AreEqual(test_job.EmployerName.Value, "ACME");
             Assert.AreEqual(test_job.EmployerLocation.Value, "Desert");
             Assert.AreEqual(test_job.JobType.Value, "Quality Control");
-            Assert.AreEqual(test_job.JobCoreCompetency.value, "Persistance");
+            Assert.AreEqual(test_job.JobCoreCompetency.Value, "Persistance");
         }
         [TestMethod]
         public void TestJobsForEquality()
@@ -57,8 +57,9 @@ namespace TechJobsTests
 
         public void TestEmptyField()
         {
-            Job test_job = new Job("fun", new Employer(), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
-            Assert.IsTrue(test_job.EmployerName.ToString() == "Data not available");
+            Job test_job = new Job("fun", new Employer(""), new Location("NC"), new PositionType("coder"), new CoreCompetency("level 1"));
+            string test_out = "\n" + $"Name: {test_job.Name}" + "\n" + $"Employer: Data not available" + "\n" + $"Location: {test_job.EmployerLocation.Value}" + "\n" + $"Position Type: {test_job.JobType.Value}" + "\n" + $"Core Competency: {test_job.JobCoreCompetency.Value}" + "\n";
+            Assert.AreEqual(test_job.ToString(), test_out);
         }
     }
 }
